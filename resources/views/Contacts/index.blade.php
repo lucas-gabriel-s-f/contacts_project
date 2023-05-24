@@ -29,18 +29,19 @@
         <p>{{$message}}</p>
     </div>
     @endif
-
+    
 <div class="container"> 
-    <div class="text-right">
-        <a href="/contacts/create" class="btn btn-dark mt-2">Create Contact</a>
-    </div>
+<h3 class="mt-3">Contact Details</h3>
+    
 
     <table class="table table-hover mt-5">
+    
       <thead>
         <tr>
           <th>Name</th>
           <th>Contact</th>
           <th>Email</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -50,12 +51,15 @@
           <td>{{$contact->Contact}}</td>
           <td>{{$contact->Email}}</td>
           <td>
-            <a class="btn btn-dark">Edit</a>
+            <a href="/contacts/{{$contact->id}}/details" class="btn btn-dark">Details</a>
           </td>
         </tr>
         @endforeach
-
+      </tbody>
     </table>
+    <div class="text-right">
+        <a href="/contacts/create" class="btn btn-dark mt-2">Create Contact</a>
+    </div>
 </div>
 
 

@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ContactController::class, 'listAllContacts'])->name('Contacts.index');
 Route::get('/contacts/create', [ContactController::class, 'createViewContact'])->name('Contacts.create');
 Route::post('/contacts/create', [ContactController::class, 'createContact'])->name('Contacts.create');
+Route::get('/contacts/{id}/details', [ContactController::class, 'detailsViewContact'])->name('Contacts.details');

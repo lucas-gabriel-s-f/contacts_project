@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Contacts Panel</title>
+        <title>Contacts details</title>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
@@ -42,23 +42,27 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-8">
-            <h3 class="mt-3">Create Contact</h3>
+                <h3 class="mt-3">Contact Details</h3>
                 <div class="card mt-3 p-3">
-                <form method="POST" action="/contacts/create" enctype="multipart/form-data">
+                <form method="" action="" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" name="Name" class="form-control">
+                        <input type="text" name="Name" class="form-control"
+                        value="{{ old('Name', $contact->Name)}}" disabled>
                         </div>
                         <div class="form-group">
                         <label>Contact</label>
-                        <input type="number" name="Contact" class="form-control">
+                        <input type="number" name="Contact" class="form-control"
+                        value="{{ old('Name', $contact->Contact)}}" disabled>
                         </div>
                         <div class="form-group">
                         <label>Email</label>
-                        <input type="email" name="Email" class="form-control">
+                        <input type="email" name="Email" class="form-control"
+                        value="{{ old('Name', $contact->Email)}}" disabled>
                         </div>  
-                        <button type="submit" class="btn btn-dark">Submit</button>
+                        <button type="submit" class="btn btn-dark float-left" onclick="setFormAction('/contacts/edit')">Edit</button>
+                        <button type="submit" class="btn btn-dark float-right" onclick="setFormAction('/contacts/delete')">Delete</button>
                     </div>
                   
                 </form>
@@ -67,6 +71,11 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="{{asset('js/app.js')}}" ></script>
+    <script type="text/javascript" src="{{asset('js/app.js')}}" >
+        function setFormAction(action, method) {
+        document.getElementById('contactForm').action = action;
+        document.getElementById('contactForm').method = method;
+        }
+    </script>
     </body>
 </html>

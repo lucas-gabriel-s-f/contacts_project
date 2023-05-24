@@ -43,5 +43,18 @@ class ContactController extends Controller
         return back()->with('success', 'Contact Created Successfully');
 
     }
+
+    public function detailsViewContact($id){
+        $contact = Contact::where('id', $id)->first();
+
+        if(!$contact){
+            return back()->with('error', 'Contact Not Found');
+        }
+
+        return view('Contacts.details', [
+            'contact' => $contact
+        ]);
+    }
+
 }
 
