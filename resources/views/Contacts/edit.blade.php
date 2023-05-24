@@ -51,9 +51,6 @@
                         <label>Name</label>
                         <input type="text" name="Name" class="form-control"
                         value="{{ old('Name', $contact->Name)}}">
-                        @if($errors->has('Name'))
-                        <span class="text-danger">{{ $errors->first('Name')}}</span>
-                        @endif
                         </div>
                         <div class="form-group">
                         <label>Contact</label>

@@ -31,7 +31,7 @@
     @endif
     
 <div class="container"> 
-<h3 class="mt-3">Contact Details</h3>
+<h3 class="mt-3">Contact List</h3>
     
 
     <table class="table table-hover mt-5">

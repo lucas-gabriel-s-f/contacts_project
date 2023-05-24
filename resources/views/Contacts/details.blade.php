@@ -43,7 +43,7 @@
         <div class="row justify-content-center">
             <div class="col-sm-8">
                 <h3 class="mt-3">Contact Details</h3>
-                <div class="card mt-3 p-3">
+                <div class="card mt-3 p-3 d-flex">
                     <form method="GET" action="/contacts/{{$contact->id}}/editView" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
@@ -61,12 +61,12 @@
                             <input type="email" name="Email" class="form-control"
                                 value="{{ old('Name', $contact->Email)}}" disabled>
                         </div>  
-                        <button type="submit" class="btn btn-dark ">Edit</button>  
+                        <button type="submit" class="btn btn-dark">Edit</button>  
                     </form>
                     <form method="POST" action="/contacts/{{$contact->id}}/delete" enctype="multipart/form-data">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-dark ">Delete</button>
+                        <button type="submit" class="btn btn-dark mt-2 ">Delete</button>
                     </form>
                 </div>
             </div>
