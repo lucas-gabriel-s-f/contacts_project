@@ -42,32 +42,35 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-8">
-                <h3 class="mt-3">Contact Details</h3>
+                <h3 class="mt-3">Contact Edit</h3>
                 <div class="card mt-3 p-3">
-                    <form method="GET" action="/contacts/{{$contact->id}}/editView" enctype="multipart/form-data">
-                        @csrf
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" name="Name" class="form-control"
-                                value="{{ old('Name', $contact->Name)}}" disabled>
+                <form method="POST" action="/contacts/{{ $contact->id}}/edit" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="Name" class="form-control"
+                        value="{{ old('Name', $contact->Name)}}">
+                        @if($errors->has('Name'))
+                        <span class="text-danger">{{ $errors->first('Name')}}</span>
+                        @endif
                         </div>
                         <div class="form-group">
-                            <label>Contact</label>
-                            <input type="number" name="Contact" class="form-control"
-                                value="{{ old('Name', $contact->Contact)}}" disabled>
+                        <label>Contact</label>
+                        <input type="number" name="Contact" class="form-control"
+                        value="{{ old('Contact', $contact->Contact)}}">
                         </div>
                         <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" name="Email" class="form-control"
-                                value="{{ old('Name', $contact->Email)}}" disabled>
+                        <label>Email</label>
+                        <input type="email" name="Email" class="form-control"
+                        value="{{ old('Email', $contact->Email)}}">
                         </div>  
-                        <button type="submit" class="btn btn-dark ">Edit</button>  
-                    </form>
-                    <form method="GET" action="/" enctype="multipart/form-data">
-                        @csrf
-                        <button type="submit" class="btn btn-dark ">Delete</button>
-                    </form>
+                        <button type="submit" class="btn btn-dark float-left">Update</button>
+                    </div>
+                  
+                </form>
                 </div>
+
             </div>
         </div>
     </div>
