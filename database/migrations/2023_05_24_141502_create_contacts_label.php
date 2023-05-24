@@ -18,6 +18,7 @@ class CreateContactsLabel extends Migration
             $table->string('Name')->min(5);
             $table->string('Contact')->digits(9)->unique();
             $table->string('Email')->unique()->email;
+            $table->softDeletes('deleted_at', 0)->nullable();
             $table->timestamps();
         });
     }

@@ -20,3 +20,4 @@ Route::post('/contacts/create', [ContactController::class, 'createContact'])->na
 Route::get('/contacts/{id}/details', [ContactController::class, 'findByIdContact'])->name('Contacts.details');
 Route::get('/contacts/{id}/editView', [ContactController::class, 'editView'])->name('Contacts.editView');
 Route::put('/contacts/{id}/edit', [ContactController::class, 'editContact'])->name('Contacts.edit');
+Route::delete('/contacts/{id}/delete', [ContactController::class, 'softDelete'])->name('Contacts.delete');

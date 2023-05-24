@@ -63,8 +63,9 @@
                         </div>  
                         <button type="submit" class="btn btn-dark ">Edit</button>  
                     </form>
-                    <form method="GET" action="/" enctype="multipart/form-data">
+                    <form method="POST" action="/contacts/{{$contact->id}}/delete" enctype="multipart/form-data">
                         @csrf
+                        @method('DELETE')
                         <button type="submit" class="btn btn-dark ">Delete</button>
                     </form>
                 </div>

@@ -11,7 +11,7 @@ class ContactController extends Controller
 {
     public function listAllContacts(){
         return view('Contacts.index',[
-            'contacts' => Contact::all()
+            'contacts' => Contact::whereNull('deleted_at')->get()
         ]);
     }
 
@@ -95,6 +95,25 @@ class ContactController extends Controller
         }
 
         return back()->with('success', 'Contact Updated Successfully');
+    }
+
+    public function softDelete($id){ 
+    $contact = Contact::find($id);
+
+    if (!$contact) {
+        return back()->with('error', 'Contact not found');
+    }
+
+    $newContact = $contact->update([
+        'deleted_at' => now()
+    ]);
+
+    if (!$newContact) {
+        return back()->with('error', 'Contact deletion failed');
+    }
+
+
+    return redirect('/')->with('success', 'Contact deleted successfully');
     }
 }
 

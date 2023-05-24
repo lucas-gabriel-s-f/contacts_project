@@ -13,7 +13,8 @@ class Contact extends Model
         'id',
         'Name',
         'Contact',
-        'Email'
+        'Email',
+        'deleted_at'
     ];
 
 }
